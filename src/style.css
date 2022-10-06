@@ -1,0 +1,78 @@
+body {
+  background-color: rgb(241, 233, 233);
+}
+
+.list-div {
+  background-color: transparent;
+  width: 500px;
+  margin: auto;
+  margin-top: 5%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  align-items: center;
+  background-color: #fff;
+  width: inherit;
+}
+
+.add {
+  width: inherit;
+  padding: 0 20px;
+  border-color: #fff;
+  border-style: none;
+  height: 40px;
+  margin-top: 1px;
+  font-style: italic;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  width: inherit;
+  border-color: #fff;
+  border-style: none;
+  font-style: italic;
+  margin-top: 1px;
+  margin-bottom: 0;
+  padding: 0;
+}
+
+.list li {
+  display: flex;
+  width: 520px;
+  border-color: #fff;
+  border-style: none;
+  height: 40px;
+  margin: 0.03em;
+  list-style: none;
+  background-color: #fff;
+  padding: 0 10px;
+  align-items: center;
+}
+
+.fa-ellipsis-vertical {
+  margin-left: 50px;
+}
+
+.check {
+  margin: 0 20px;
+}
+
+.input-list {
+  border-style: none;
+  border-color: #fff;
+  width: 75%;
+}
+
+.clear {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(203, 205, 197, 0.641);
+  margin-top: 1px;
+  height: 40px;
+  width: 108%;
+}
