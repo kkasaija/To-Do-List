@@ -67,12 +67,7 @@ body {
   width: 75%;
 }
 
-.clear {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: rgba(203, 205, 197, 0.641);
-  margin-top: 1px;
+.button {
   height: 40px;
   width: 108%;
 }
