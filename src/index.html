@@ -5,18 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/1b6d3052e7.js" crossorigin="anonymous"></script>
-    <title>To do list Demo</title>
+    <title>To do list App with Add/Remove Buttons</title>
   </head>
   <body>
     <section class="main-wrapper">
-      <div class="list-div">
+      <div class="list-wrapper">
         <div class="header">
-          <p>Today's To Do</p>
-          <i class="fa-solid fa-arrows-rotate"></i>
+          <p>Today's To-Do-List</p>
+          <i class="fa fa-refresh"></i>
         </div>
-        <input type="text" placeholder="Add to your list" class="add">
-        <ul class="list"></ul>
-        <input type="button" value="Clear all completed" class="button">
+        <div class="content">
+          <div class="add-item">
+            <input type="text" id="enter" placeholder="add-to-do">
+            <i class="fa-sharp fa-solid fa-turn-down-left"></i>
+          </div>
+          <ul id="todolist"></ul>
+        </div>
       </div>
     </section>
   </body>
