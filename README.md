@@ -1,25 +1,18 @@
 # To-do-list-demo: 
-## List structure
+## Add & Remove
 ### Learning objectives
 - Use webpack to bundle JavaScript.
 - Learn how to use proper ES6 syntax.
 - Use ES6 modules to write modular JavaScript.
 #### Description
-- Build a simple HTML list of To Do tasks. This simple web page will be built using webpack and served by a webpack dev server.
+- Implement the CRUD (create, read, update, delete).
 
 
 #### Milestone completed:
-- [x] Create a `Github` project `Repo`
-- [x] Clone `Repo`
-- [x] [Project setup ,](https://webpack.js.org/guides/getting-started/#basic-setup). from Basic Setup to NPM Scripts.
-- [x]  [Setting up `HtmlWebpackPlugin `](https://webpack.js.org/guides/output-management/#setting-up-htmlwebpackplugin) 
-- [x] Add `html` template
-- [x] [Add css](https://webpack.js.org/guides/asset-management/#loading-css)
-- [x] [Setup local dev server](https://webpack.js.org/guides/development/#using-webpack-dev-server)
-- [x] Create an empty `To Do List` placeholder
-- [x] Set an `array` of some simple `to do` tasks
-- [x] Write a `function` to iterate over the tasks
-- [x] On page load, render the dynamically created list of tasks in the dedicated placeholder
+- [x] Implement a function for `adding` a new task
+- [x] Implement a function for `editing` a task
+- [x] Implement a function for `deleting` a task
+- [x] All changes to the To Do List should be saved in `local storage` 
 ## Language Used
 - HTML
 - CSS

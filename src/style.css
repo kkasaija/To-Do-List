@@ -1,43 +1,126 @@
+/* ------------ youtube.com/CodeExplained ------------ */
 body {
-  background-color: lightgrey;
+  padding: 0;
+  margin: 0;
+  background-color: rgba(0, 0, 0, 0.1);
+  font-family: 'Titillium Web', sans-serif;
 }
 
-.main-wrapper {
-  background-color: rgba(172, 184, 151, 0.804);
-  width: 600px;
+/* ------------ container ------------ */
+.container {
+  padding: 10px;
+  width: 380px;
   margin: 0 auto;
 }
 
-.list-wrapper {
-  background-color: rgb(160, 226, 122);
-  width: 540px;
-  margin: auto;
-}
-
+/* ------------ header ------------ */
 .header {
   display: flex;
+  flex-wrap: wrap;
+  width: 340px;
+  height: auto;
+  border-radius: 15px 15px 0 0;
   align-items: center;
   justify-content: space-between;
-  padding: 2px 20px;
-  height: 40px;
+  padding: 0 20px;
   background-color: #fff;
-  margin-top: 1px;
+  margin-bottom: 1px;
 }
 
-.add-item {
+.clear i {
+  font-size: 22px;
+}
+
+/* ------------ content ------------ */
+.content {
+  width: 380px;
+  height: auto;
+  background-color: #fff;
+  overflow: auto;
+}
+
+.content ul {
+  padding: 0;
+  margin: 0;
+}
+
+.item {
   display: flex;
+  flex-wrap: wrap;
+  height: 45px;
+  min-height: 45px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  list-style: none;
+  padding: 0;
+  margin: 0;
   align-items: center;
-  justify-content: space-between;
-  padding: 2px 20px;
-  background-color: #fff;
-  height: 30px;
-  margin-top: 1px;
+  align-content: center;
+  overflow: hidden;
+  justify-content: space-around;
 }
 
-#enter {
-  max-width: inherit;
-  border: 1px white snow;
+.item i.co {
+  display: flex;
+  justify-content: center;
+  font-size: 25px;
+  margin: 0 10px;
+  top: 10px;
+  width: 32px;
+}
+
+.fa-check-circle-o {
+  color: #6eb200;
+}
+
+.fa-square::before {
+  content: "\f0c8";
+}
+
+.item p.text {
+  display: flex;
+  margin: 0;
+  align-self: center;
+  font-size: 16px;
+  background-color: #fff;
+  width: 70%;
+  height: inherit;
+  align-items: center;
+  padding: 0 5px;
+}
+
+.item i.de {
+  display: flex;
+  justify-content: center;
+  font-size: 25px;
+  width: 32px;
+  margin-left: 10px;
+  text-align: center;
+}
+
+/* ------------ add item ------------ */
+.add-to-do {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 360px;
+  height: 33px;
+  background-color: #fff;
+  padding: 0 10px;
+}
+
+.add-to-do i {
+  position: absolute;
+  font-size: 20px;
+  color: #4162f6;
+}
+
+.add-to-do input {
+  height: 21px;
+  width: 75%;
+  background-color: transparent;
+  border: none;
+  font-size: 18px;
+  padding-left: 10px;
   font-style: italic;
-  border-color: #fff;
-  height: 25px;
 }
