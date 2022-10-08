@@ -1,35 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <title>To do list App with Add/Remove Buttons</title>
-  <script defer src="main.js"></script></head>
-  <body>
-    <div class="container">
-      <header>
-        <div class="header">
-          <h2>To Do List</h2>
-        </div>
-        <div class="new-todo">
-          <form action="" id="todoform">
-            <input type="text" name="newtodo" id="newtodo" placeholder="add list item here">
-            <button type="submit">
-              <i class="bi bi-plus-circle-fill"></i>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">   -->
+    <script
+    src="https://kit.fontawesome.com/ce85233928.js"
+    crossorigin="anonymous"
+  ></script>
+    <title>TO DO LIST</title>
+</head>
+
+<body>
+    <section class="container">
+        <div class="todoHeader">
+            <h2>Today's TO Do</h2>
+            <button type="button">
+                <i  id="refresh" class="fa fa-refresh" aria-hidden="true"></i>
             </button>
-          </form>
         </div>
-      </header>
-      <div id="todos-list">
-        <div class="todo">
-          <i class="bi bi-circle"></i>
-          <p class="">Get milk</p>
-          <i bi bi-pencil-square></i>
-          <i class="bi bi-trash"></i>
-        </div>
-      </div>
-    </div>
-  </body>
+        <form class="form">
+            <div class="formHeader">
+                <input type="text" class="taskInput" placeholder="Add to your list....." />
+                <button type="submit" class="addItem">
+                    <i class="fa fa-sign-in" aria-hidden="true"></i>
+                </button>
+            </div>
+        </form>
+        <form class="edit-form">
+            <div class="formHeader">
+                <input type="text" class="editInput" placeholder="Edit selected item....." />
+                <button type="submit" class="addItem">
+                    <i class="fa fa-sign-in" aria-hidden="true"></i>
+                </button>
+            </div>
+        </form>
+        <section class="main">
+            <div class="list-content" id="list-content">
+                
+            </div>
+            
+
+            <div class="clearAll">
+                <p>Clear All completed items</p>
+            </div>
+        </section>
+    </section>
+
+
+
+    <script src="index.js"></script>
+</body>
+
 </html>

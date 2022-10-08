@@ -12,7 +12,10 @@
 - [x] Implement a function for `adding` a new task
 - [x] Implement a function for `editing` a task
 - [x] Implement a function for `deleting` a task
-- [x] All changes to the To Do List should be saved in `local storage` 
+- [x] All changes to the To Do List should be saved in `local storage`
+- [x] Add interactive `check` buttons 
+- [x] Add event listener to the `checkbox` (change).
+- [x] Implement a function for the `"Clear all completed" button` (use filter() method).
 ## Language Used
 - HTML
 - CSS
