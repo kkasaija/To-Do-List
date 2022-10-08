@@ -1,75 +1,210 @@
-/* eslint-disable no-unused-vars */
+/* eslint-disable no-unreachable */
+/* eslint-disable no-unused-expressions */
+/* eslint-disable radix */
 /* eslint-disable no-restricted-globals */
-/* eslint-disable import/prefer-default-export */
-/* eslint-disable import/no-cycle */
-import _ from 'lodash';
+/* eslint-disable eqeqeq */
 import './style.css';
-import { loadList } from './loadList.js';
-import { addToDo, completeToDo } from './addToDo.js';
-import { removeToDo } from './removeToDo.js';
 
-const clear = document.querySelector('.clear');
-const list = document.getElementById('list');
-const input = document.getElementById('input');
-const btn = document.getElementById('btn');
+import {
+  statechange, deleteCompleted, checkbx, clearCompleted,
+} from './modules/update.js';
 
-// Declare array and index
-let LIST;
-let index;
-
-// get item from localstorage
-const data = localStorage.getItem('TODO');
-
-// check if data is not empty
-if (data) {
-  LIST = JSON.parse(data);
-  index = LIST.length; // set the id to the last one in the list
-  loadList(LIST); // load the list to the user interface
-} else {
-  // if data isn't empty
-  LIST = [];
-  index = 0;
+class List {
+  constructor(description, index, completed) {
+    this.description = description;
+    this.index = index;
+    this.completed = completed;
+  }
 }
 
-// clear the local storage
-clear.addEventListener('click', () => {
-  localStorage.clear();
+// Create local storage
+
+if (localStorage.getItem('mylist') === null) {
+  localStorage.setItem('mylist', JSON.stringify([]));
+}
+const taskLs = JSON.parse(localStorage.getItem('mylist'));
+
+// updateLocalStorage
+const updateLocalStorage = () => {
+  localStorage.setItem('mylist', JSON.stringify(taskLs));
+  const another = JSON.parse(localStorage.getItem('mylist'));
+  return another;
+};
+
+// display todoList
+const displayItem = (items) => {
+  let todoos = '';
+
+  for (let i = 0; i < items.length; i += 1) {
+    todoos += `
+  <div class="todoItem">
+  <div class="${items[i].index}">
+    <input type="checkbox" class="checkBox"  />
+    <p class="todoActivity" id=${items[i].completed}> ${items[i].description}  </p>
+  </div>
+  <div class="${items[i].index}">
+  <button class="addbtn">
+
+  <span class="edit" id='${items[i].index}'><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+  </span>
+  <span class="delete" id='${items[i].index}'>&cross;</span>
+  </button>
+  </div>
+  <button class="deleteItem">  </button>  
+  </div>   `;
+  }
+  return todoos;
+};
+
+const monitor = () => {
+  if (checkbx) {
+    console.log('');
+    statechange();
+  } else {
+    checkbx.addEventListener('change', () => {
+      console.log(' ');
+    });
+  }
+};
+
+monitor();
+deleteCompleted();
+clearCompleted;
+
+// clear fields
+
+const clearFields = () => {
+  document.querySelector('.taskInput').value = '';
+};
+
+// showlist
+const showList = () => {
+  const listContent = document.querySelector('.list-content');
+  listContent.innerHTML = `
+
+ ${displayItem(taskLs)}`;
+
+  clearFields();
+};
+
+// Create new task
+
+const addItem = (description) => {
+  const anothertask = new List(description, taskLs.length + 1, false);
+  taskLs.push(anothertask);
+  updateLocalStorage();
+  showList();
+};
+
+// to edit
+
+const form = document.querySelector('.form');
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const task = document.querySelector('.taskInput').value;
+  const taskInput = document.querySelector('.taskInput');
+
+  addItem(task);
+  location.reload();
+  taskInput.focus();
+});
+
+const deleted = (pop) => {
+  const removeLss = JSON.parse(localStorage.getItem('mylist'));
+  removeLss.forEach((element, index) => {
+    if (element.index == pop) {
+      removeLss.splice(index, 1);
+      localStorage.setItem('mylist', JSON.stringify(removeLss));
+    }
+  });
+  localStorage.setItem('mylist', JSON.stringify(removeLss));
+  location.reload();
+};
+
+// delete function
+
+const deleteItem = (ele) => {
+  if (ele.classList.contains('delete')) {
+    ele.parentElement.parentElement.parentElement.remove();
+
+    const pop = ele.parentElement.parentElement.classList.value;
+
+    deleted(pop);
+  }
+};
+
+// delete item
+const toDelete = document.querySelector('.list-content');
+if (!toDelete) {
+  console.log(' ');
+} else {
+  document.querySelector('.list-content').addEventListener('click', (e) => {
+    if (!e) {
+      console.log(' ');
+    } else {
+      deleteItem(e.target);
+    }
+  });
+}
+
+// edit item
+
+const toEdit = document.querySelector('.list-content');
+const editForm = document.querySelector('.edit-form');
+const form2 = document.querySelector('.form');
+const editItem = (tar) => {
+  if (tar.parentElement.classList.contains('edit')) {
+    form2.style.display = 'none';
+    editForm.style.display = 'block';
+    const editInput = document.querySelector('.editInput');
+    editInput.focus();
+    const itemId = tar.parentElement.parentElement.parentElement.classList.value;
+    const num = parseInt(itemId);
+    const p = num - 1;
+
+    if (taskLs[p].index === num) {
+      editInput.value = taskLs[p].description;
+      editForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        taskLs[p].description = editInput.value;
+        taskLs[p].completed = false;
+        taskLs[p].index = num;
+
+        updateLocalStorage();
+
+        location.reload();
+      });
+    }
+  }
+};
+
+// edit function
+
+if (!toEdit) {
+  console.log(' ');
+} else {
+  toEdit.addEventListener('click', (e) => {
+    editItem(e.target);
+  });
+}
+
+const refresh = document.querySelector('#refresh');
+refresh.addEventListener('click', () => {
   location.reload();
 });
 
-// add an item to the list user the enter key
-btn.addEventListener('click', (even) => {
-  if (btn) {
-    const description = input.value;
-
-    // if the input isn't empty
-    if (description) {
-      addToDo(description, index, false, false);
-      LIST.push({
-        description,
-        index,
-        completed: false,
-        deleted: false,
-      });
-
-      // add item to localstorage
-      localStorage.setItem('TODO', JSON.stringify(LIST));
-      index += index;
+const init = () => {
+  taskLs.forEach((element, index) => {
+    if (element) {
+      element.index = index + 1;
     }
-    input.value = '';
-  }
-});
+  });
 
-// for the items created dynamically
-list.addEventListener('click', (event) => {
-  const element = event.target; // return the clicked element inside list
-  const elementJob = element.attributes.job.value; // complete or delete
-  if (elementJob === 'complete') {
-    completeToDo(element);
-  } else if (elementJob === 'delete') {
-    removeToDo(element);
-  }
+  updateLocalStorage();
 
-  // add item to localstorage
-  localStorage.setItem('TODO', JSON.stringify(LIST));
-});
+  window.onload = () => {
+    showList();
+  };
+  console.log(' ');
+};
+init();
