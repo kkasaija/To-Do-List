@@ -9,23 +9,26 @@
   <script defer src="main.js"></script></head>
   <body>
     <div class="container">
-      <div class="header">
-        <div class="clear">
-          <i class="fa fa-refresh" aria-hidden="true"></i>
+      <header>
+        <div class="header">
+          <h2>To Do List</h2>
         </div>
-      </div>
-      <div class="content">
-        <ul id="list">
-          <!-- <li class="item">
-            <i class="fa fa-circle co" job="complete" id="0"></i>
-            <p class="text">Drink Coffee</p>
-            <i class="fa fa-trash de" job="delete" id="0"></i> 
-          </li> -->
-        </ul>
-      </div>
-      <div class="add-to-do">
-        <input type="text" id="input" placeholder="Add a to-do">
-        <button type="" id="btn">submit</button>
+        <div class="new-todo">
+          <form action="" id="todoform">
+            <input type="text" name="newtodo" id="newtodo" placeholder="add list item here">
+            <button type="submit">
+              <i class="bi bi-plus-circle-fill"></i>
+            </button>
+          </form>
+        </div>
+      </header>
+      <div id="todos-list">
+        <div class="todo">
+          <i class="bi bi-circle"></i>
+          <p class="">Get milk</p>
+          <i bi bi-pencil-square></i>
+          <i class="bi bi-trash"></i>
+        </div>
       </div>
     </div>
   </body>
