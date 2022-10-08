@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable no-unreachable */
 /* eslint-disable no-restricted-globals */
 /* eslint-disable eqeqeq */

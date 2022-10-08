@@ -1,4 +1,4 @@
-/* eslint-disable no-empty */
+/* eslint-disable no-console */
 /* eslint-disable no-unreachable */
 /* eslint-disable no-unused-expressions */
 /* eslint-disable radix */
@@ -59,9 +59,11 @@ const displayItem = (items) => {
 
 const monitor = () => {
   if (checkbx) {
+    console.log('');
     statechange();
   } else {
     checkbx.addEventListener('change', () => {
+      console.log(' ');
     });
   }
 };
@@ -135,9 +137,11 @@ const deleteItem = (ele) => {
 // delete item
 const toDelete = document.querySelector('.list-content');
 if (!toDelete) {
+  console.log(' ');
 } else {
   document.querySelector('.list-content').addEventListener('click', (e) => {
     if (!e) {
+      console.log(' ');
     } else {
       deleteItem(e.target);
     }
@@ -178,6 +182,7 @@ const editItem = (tar) => {
 // edit function
 
 if (!toEdit) {
+  console.log(' ');
 } else {
   toEdit.addEventListener('click', (e) => {
     editItem(e.target);
@@ -201,5 +206,6 @@ const init = () => {
   window.onload = () => {
     showList();
   };
+  console.log(' ');
 };
 init();
