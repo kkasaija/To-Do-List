@@ -4,8 +4,8 @@
 /* eslint-disable import/no-cycle */
 import _ from 'lodash';
 import './style.css';
-import { addToDo } from './addToDo.js';
 import { loadList } from './loadList.js';
+import { addToDo, completeToDo } from './addToDo.js';
 import { removeToDo } from './removeToDo.js';
 
 const clear = document.querySelector('.clear');
@@ -63,8 +63,10 @@ btn.addEventListener('click', (even) => {
 // for the items created dynamically
 list.addEventListener('click', (event) => {
   const element = event.target; // return the clicked element inside list
-  const elementJob = element.attributes.job.value;// delete
-  if (elementJob === 'delete') {
+  const elementJob = element.attributes.job.value; // complete or delete
+  if (elementJob === 'complete') {
+    completeToDo(element);
+  } else if (elementJob === 'delete') {
     removeToDo(element);
   }
 

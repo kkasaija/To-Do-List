@@ -1,8 +1,8 @@
+/* eslint-disable no-unused-vars */
 // load items to the user's interface
 /* eslint-disable no-undef */
 /* eslint-disable import/prefer-default-export */
 /* eslint-disable import/no-cycle */
-import { addToDo } from './addToDo.js';
 import './index.js';
 
 export const loadList = (array) => {
