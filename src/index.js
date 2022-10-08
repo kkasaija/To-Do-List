@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable no-unreachable */
 /* eslint-disable no-unused-expressions */
 /* eslint-disable radix */
