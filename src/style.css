@@ -1,73 +1,122 @@
-body {
-  background-color: rgb(241, 233, 233);
-}
-
-.list-div {
-  background-color: transparent;
-  width: 500px;
-  margin: auto;
-  margin-top: 5%;
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  padding: 0 20px;
-  align-items: center;
-  background-color: #fff;
-  width: inherit;
-}
-
-.add {
-  width: inherit;
-  padding: 0 20px;
-  border-color: #fff;
-  border-style: none;
-  height: 40px;
-  margin-top: 1px;
-  font-style: italic;
-}
-
-.list {
+.container {
+  width: 80%;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  width: inherit;
-  border-color: #fff;
-  border-style: none;
-  font-style: italic;
-  margin-top: 1px;
-  margin-bottom: 0;
-  padding: 0;
+  margin: auto;
+  border: 2px solid white;
+  margin-top: 10%;
+  box-shadow: 0 1px 2px 3px;
 }
 
-.list li {
+.todoHeader {
   display: flex;
-  width: 520px;
-  border-color: #fff;
-  border-style: none;
+  justify-content: space-between;
+  min-height: 40px;
+  padding-left: 20px;
+  border-bottom: 1px solid black;
+  padding-right: 20px;
+}
+
+h2 {
+  font-size: 20px;
+  padding: 0;
+  margin: 0;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.edit-form {
+  display: none;
+}
+
+.todoItem,
+.formHeader {
+  min-height: 40px;
+  padding-left: 20px;
+  border-bottom: 1px solid black;
+  padding-top: 5px;
+  padding-right: 20px;
+}
+
+.formHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.taskInput,
+.editInput {
   height: 40px;
-  margin: 0.03em;
-  list-style: none;
-  background-color: #fff;
-  padding: 0 10px;
+  border: none;
+  font-size: 20px;
+  width: 100%;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.todoItem {
+  display: flex;
+  justify-content: space-between;
+}
+
+.todoActivity {
+  display: inline;
+}
+
+.deleteItem {
+  display: none;
+}
+
+::placeholder {
+  font-size: 20px;
+  padding: 0;
+  margin: 0;
+  font-weight: 100;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.clearAll {
+  height: 40px;
+  display: flex;
+  justify-content: space-around;
   align-items: center;
+  min-height: 40px;
+  background-color: #f2f2f2;
+  padding-left: 20px;
 }
 
-.fa-ellipsis-vertical {
-  margin-left: 50px;
+.clearAll p {
+  color: rgb(105, 98, 98);
+  font-family: "Trebuchet MS", "Lucida Sans", Arial, sans-serif;
 }
 
-.check {
-  margin: 0 20px;
+button {
+  background-color: white;
+  border: none;
 }
 
-.input-list {
-  border-style: none;
-  border-color: #fff;
-  width: 75%;
+#true {
+  text-decoration: line-through;
+  color: rgb(105, 98, 98);
 }
 
-.button {
-  height: 40px;
-  width: 108%;
+.complete {
+  text-decoration: line-through;
+  color: rgb(43, 29, 29);
+  font-weight: 900;
+}
+
+.edit {
+  color: #00bcd4;
+  font-size: 17px;
+  margin-right: 20px;
+}
+
+.delete {
+  font-size: 20px;
+  color: red;
+}
+
+@media screen and (min-width: 800px) {
+  .container {
+    width: 40%;
+  }
 }
