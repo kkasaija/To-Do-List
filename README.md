@@ -21,7 +21,7 @@
 - CSS
 - ES6
 ## Live Demo
-> [Click here for live preview](https://kasaija-kenneth.github.io/)
+> [Click here for live preview](https://kasaija-kenneth.github.io/interactive/dist/)
 
 ## Getting Started
 
