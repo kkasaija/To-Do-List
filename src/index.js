@@ -63,9 +63,7 @@ const monitor = () => {
     console.log('');
     statechange();
   } else {
-    checkbx.addEventListener('change', () => {
-      console.log(' ');
-    });
+    checkbx.addEventListener('change', () => '');
   }
 };
 
@@ -138,16 +136,16 @@ const deleteItem = (ele) => {
 // delete item
 const toDelete = document.querySelector('.list-content');
 if (!toDelete) {
-  console.log(' ');
-} else {
-  document.querySelector('.list-content').addEventListener('click', (e) => {
-    if (!e) {
-      console.log(' ');
-    } else {
-      deleteItem(e.target);
-    }
-  });
+  return '';
 }
+// eslint-disable-next-line consistent-return
+document.querySelector('.list-content').addEventListener('click', (e) => {
+  if (!e) {
+    return '';
+  }
+  deleteItem(e.target);
+});
+
 
 // edit item
 
@@ -207,6 +205,6 @@ const init = () => {
   window.onload = () => {
     showList();
   };
-  console.log(' ');
+  return '';
 };
 init();

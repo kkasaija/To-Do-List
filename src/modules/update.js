@@ -16,10 +16,8 @@ export const statechange = () => {
     if (e.target.classList.contains('checkBox')) {
       const h = e.target.parentElement.classList.value;
 
-      console.log(h);
       const state = e.target;
       if (state.checked) {
-        console.log('checked');
         state.parentElement.parentElement.classList.add('complete');
 
         taskLs.forEach((element, index) => {
@@ -30,11 +28,8 @@ export const statechange = () => {
           updateLocalStorage();
         });
       } else {
-        console.log('not checked');
         updateLocalStorage();
       }
-    } else {
-      console.log('not checkbox');
     }
   });
 };
@@ -46,7 +41,6 @@ export const deleteCompleted = () => {
     const filt = JSON.parse(localStorage.getItem('mylist'));
 
     const filtered = filt.filter(((x) => x.completed === false));
-    console.log(filtered);
     updateLocalStorage();
     localStorage.setItem('mylist', JSON.stringify(filtered));
     location.reload();
