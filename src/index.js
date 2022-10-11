@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 /* eslint-disable no-multiple-empty-lines */
 /* eslint-disable no-console */
 /* eslint-disable no-unreachable */
@@ -60,11 +61,10 @@ const displayItem = (items) => {
 
 const monitor = () => {
   if (checkbx) {
-    console.log('');
+    return '';
     statechange();
-  } else {
-    checkbx.addEventListener('change', () => '');
   }
+  checkbx.addEventListener('change', () => '');
 };
 
 monitor();
@@ -181,12 +181,12 @@ const editItem = (tar) => {
 // edit function
 
 if (!toEdit) {
-  console.log(' ');
-} else {
-  toEdit.addEventListener('click', (e) => {
-    editItem(e.target);
-  });
+  return '';
 }
+toEdit.addEventListener('click', (e) => {
+  editItem(e.target);
+});
+
 
 const refresh = document.querySelector('#refresh');
 refresh.addEventListener('click', () => {
