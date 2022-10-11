@@ -1,4 +1,5 @@
-/* eslint-disable consistent-return */
+/* eslint-disable no-empty */
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-multiple-empty-lines */
 /* eslint-disable no-console */
 /* eslint-disable no-unreachable */
@@ -6,6 +7,7 @@
 /* eslint-disable radix */
 /* eslint-disable no-restricted-globals */
 /* eslint-disable eqeqeq */
+import _ from 'lodash';
 import './style.css';
 
 import {
@@ -61,10 +63,10 @@ const displayItem = (items) => {
 
 const monitor = () => {
   if (checkbx) {
-    return '';
     statechange();
+  } else {
+    checkbx.addEventListener('change', () => {});
   }
-  checkbx.addEventListener('change', () => '');
 };
 
 monitor();
@@ -72,7 +74,6 @@ deleteCompleted();
 clearCompleted;
 
 // clear fields
-
 const clearFields = () => {
   document.querySelector('.taskInput').value = '';
 };
@@ -83,12 +84,10 @@ const showList = () => {
   listContent.innerHTML = `
 
  ${displayItem(taskLs)}`;
-
   clearFields();
 };
 
 // Create new task
-
 const addItem = (description) => {
   const anothertask = new List(description, taskLs.length + 1, false);
   taskLs.push(anothertask);
@@ -97,7 +96,6 @@ const addItem = (description) => {
 };
 
 // to edit
-
 const form = document.querySelector('.form');
 form.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -122,33 +120,26 @@ const deleted = (pop) => {
 };
 
 // delete function
-
 const deleteItem = (ele) => {
   if (ele.classList.contains('delete')) {
     ele.parentElement.parentElement.parentElement.remove();
-
     const pop = ele.parentElement.parentElement.classList.value;
-
     deleted(pop);
   }
 };
 
 // delete item
 const toDelete = document.querySelector('.list-content');
-if (!toDelete) {
-  return '';
+if (!toDelete) {} else {
+  // eslint-disable-next-line consistent-return
+  document.querySelector('.list-content').addEventListener('click', (e) => {
+    if (!e) {
+      return '';
+    } deleteItem(e.target);
+  });
 }
-// eslint-disable-next-line consistent-return
-document.querySelector('.list-content').addEventListener('click', (e) => {
-  if (!e) {
-    return '';
-  }
-  deleteItem(e.target);
-});
-
 
 // edit item
-
 const toEdit = document.querySelector('.list-content');
 const editForm = document.querySelector('.edit-form');
 const form2 = document.querySelector('.form');
@@ -171,7 +162,6 @@ const editItem = (tar) => {
         taskLs[p].index = num;
 
         updateLocalStorage();
-
         location.reload();
       });
     }
@@ -179,14 +169,13 @@ const editItem = (tar) => {
 };
 
 // edit function
-
 if (!toEdit) {
-  return '';
+  // console.log(' ');
+} else {
+  toEdit.addEventListener('click', (e) => {
+    editItem(e.target);
+  });
 }
-toEdit.addEventListener('click', (e) => {
-  editItem(e.target);
-});
-
 
 const refresh = document.querySelector('#refresh');
 refresh.addEventListener('click', () => {
@@ -201,10 +190,8 @@ const init = () => {
   });
 
   updateLocalStorage();
-
   window.onload = () => {
     showList();
   };
-  return '';
 };
 init();
