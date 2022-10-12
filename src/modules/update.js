@@ -39,7 +39,6 @@ export const statechange = () => {
   });
 };
 export const checkbx = document.querySelectorAll('.checkBox');
-
 export const clearCompleted = document.querySelector('.clearAll');
 export const deleteCompleted = () => {
   clearCompleted.addEventListener('click', (e) => {
