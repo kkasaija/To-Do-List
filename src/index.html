@@ -1,59 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">   -->
     <script
-    src="https://kit.fontawesome.com/ce85233928.js"
-    crossorigin="anonymous"
-  ></script>
+      src="https://kit.fontawesome.com/ce85233928.js"
+      crossorigin="anonymous"></script>
     <title>TO DO LIST</title>
-</head>
+  </head>
 
-<body>
-    <section class="container">
-        <div class="todoHeader">
-            <h2>Today's TO Do</h2>
-            <button type="button">
-                <i  id="refresh" class="fa fa-refresh" aria-hidden="true"></i>
-            </button>
+  <body>
+    <main class="container">
+      <!------------Header--------->
+      <div class="todoHeader">
+        <h2>Today's TO Do</h2>
+        <span type="button" class="btn">&#8634;</span>
+      </div>
+      <!--------------------------->
+
+      <!---- todo input form ------>
+      <form class="form-input">
+        <input type="text" placeholder="Add to your list..................." />
+        <span type="submit" class="addItem btn">&#10149;</span>
+      </form>
+      <!--------------------------->
+
+      <!----- todo edit form ------>
+      <form class="form-edit">
+        <input type="text" placeholder="Edit selected item..................." />
+        <span type="submit" class="addItem btn">&#10149;</span>
+      </form>
+      <!--------------------------->
+
+      <!--Display available todos-->
+      <section class="todo-container">
+        <div class="todo">
+          <div class="todo-item">
+            <input type="checkbox" class="check-box" />
+            <span>Go home</span>
+          </div>
+          <div class="todo-action">
+            <span class="addbtn btn">&#9998;</span>
+            <span class="deleteItem btn">&#10008;</span>
+          </div>
         </div>
-        <form class="form">
-            <div class="formHeader">
-                <input type="text" class="taskInput" placeholder="Add to your list....." />
-                <button type="submit" class="addItem">
-                    <i class="fa fa-sign-in" aria-hidden="true"></i>
-                </button>
-            </div>
-        </form>
-        <form class="edit-form">
-            <div class="formHeader">
-                <input type="text" class="editInput" placeholder="Edit selected item....." />
-                <button type="submit" class="addItem">
-                    <i class="fa fa-sign-in" aria-hidden="true"></i>
-                </button>
-            </div>
-        </form>
-        <section class="main">
-            <div class="list-content" id="list-content">
-                
-            </div>
-            
-
-            <div class="clearAll">
-
-                <p>Clear All completed items</p>
-
-            </div>
-        </section>
-    </section>
-
-
-
-    <script src="index.js"></script>
-</body>
-
+        <div class="todo">
+          <div class="todo-item">
+            <input type="checkbox" class="check-box" />
+            <span>Go home</span>
+          </div>
+          <div class="todo-action">
+            <span class="addbtn btn">&#9998;</span>
+            <span class="deleteItem btn">&#10008;</span>
+          </div>
+        </div>
+      </section>
+      <!--------------------------->
+      <div class="clear-all">
+        <p>Clear All completed items</p>
+      </div>
+    </main>
+    <!-- <script src="index.js"></script> -->
+  </body>
 </html>

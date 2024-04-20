@@ -4,18 +4,18 @@
   display: flex;
   flex-direction: column;
   margin: auto;
-  border: 2px solid white;
+  border: 1px solid;
   margin-top: 10%;
-  box-shadow: 0 1px 2px 3px;
+  box-shadow: 0 1px 1px 1px;
 }
 
 .todoHeader {
   display: flex;
   justify-content: space-between;
-  min-height: 40px;
-  padding-left: 20px;
-  border-bottom: 1px solid black;
-  padding-right: 20px;
+  min-height: 30px;
+  padding: 5px 10px;
+  align-items: center;
+  border-bottom: 1px solid #8e8c8c;
 }
 
 h2 {
@@ -25,94 +25,95 @@ h2 {
   font-family: "Courier New", Courier, monospace;
 }
 
-.edit-form {
+.form-edit {
   display: none;
 }
 
-.todoItem,
-.formHeader {
-  min-height: 40px;
-  padding-left: 20px;
-  border-bottom: 1px solid black;
-  padding-top: 5px;
-  padding-right: 20px;
-}
-
-.formHeader {
+.form-input {
   display: flex;
   justify-content: space-between;
+  padding: 0 10px;
+  align-items: center;
+  min-height: 35px;
 }
 
-.taskInput,
-.editInput {
-  height: 40px;
+.form-input input {
   border: none;
-  font-size: 20px;
-  width: 100%;
-  font-family: "Courier New", Courier, monospace;
+  min-width: 75%;
+  outline: none;
+  min-height: 30px;
 }
 
-.todoItem {
+form {
+  border-bottom: 1px solid #4b4848;
+  margin-bottom: 5px;
+}
+
+.check-box {
+  margin-right: 10px;
+}
+
+.todo-container {
+  padding: 0 10px;
+}
+
+.todo {
   display: flex;
+  align-items: center;
   justify-content: space-between;
 }
 
-.todoActivity {
-  display: inline;
+.todo:not(:first-child) {
+  margin-top: 5px;
 }
 
-.deleteItem {
-  display: none;
+.todo:last-child {
+  padding-bottom: 5px;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+}
+
+.btn {
+  padding: 2px 8px;
+  cursor: pointer;
+}
+
+.clear-all {
+  height: 30px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 30px;
+  background-color: #f2f2f2;
+  padding-left: 20px;
+  cursor: pointer;
+}
+
+.clear-all p {
+  color: #696262;
+  font-family: "Trebuchet MS", "Lucida Sans", Arial, sans-serif;
 }
 
 ::placeholder {
-  font-size: 20px;
+  font-size: 16px;
   padding: 0;
   margin: 0;
   font-weight: 100;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.clearAll {
-  height: 40px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  min-height: 40px;
-  background-color: #f2f2f2;
-  padding-left: 20px;
-}
-
-.clearAll p {
-  color: rgb(105, 98, 98);
-  font-family: "Trebuchet MS", "Lucida Sans", Arial, sans-serif;
-}
-
-button {
-  background-color: white;
-  border: none;
-}
-
 #true {
   text-decoration: line-through;
-  color: rgb(105, 98, 98);
+  color: #696262;
 }
 
 .complete {
   text-decoration: line-through;
-  color: rgb(43, 29, 29);
+  color: #2b1d1d;
   font-weight: 900;
-}
-
-.edit {
-  color: #00bcd4;
-  font-size: 17px;
-  margin-right: 20px;
-}
-
-.delete {
-  font-size: 20px;
-  color: red;
 }
 
 @media screen and (min-width: 800px) {

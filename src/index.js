@@ -1,18 +1,15 @@
-/* eslint-disable no-empty */
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-multiple-empty-lines */
-/* eslint-disable no-console */
-/* eslint-disable no-unreachable */
-/* eslint-disable no-unused-expressions */
-/* eslint-disable radix */
-/* eslint-disable no-restricted-globals */
-/* eslint-disable eqeqeq */
 import _ from 'lodash';
 import './style.css';
 
 import {
-  statechange, deleteCompleted, checkbx, clearCompleted,
+  statechange, 
+  deleteCompleted, 
+  checkbx, 
+  clearCompleted,
 } from './modules/update.js';
+
+const listContent = document.querySelector('.list-content');
+const taskLs = JSON.parse(localStorage.getItem('mylist'));
 
 class List {
   constructor(description, index, completed) {
@@ -27,7 +24,6 @@ class List {
 if (localStorage.getItem('mylist') === null) {
   localStorage.setItem('mylist', JSON.stringify([]));
 }
-const taskLs = JSON.parse(localStorage.getItem('mylist'));
 
 // updateLocalStorage
 const updateLocalStorage = () => {
@@ -38,10 +34,10 @@ const updateLocalStorage = () => {
 
 // display todoList
 const displayItem = (items) => {
-  let todoos = '';
+  let todos = '';
 
   for (let i = 0; i < items.length; i += 1) {
-    todoos += `
+    todos += `
   <div class="todoItem">
   <div class="${items[i].index}">
     <input type="checkbox" class="checkBox"  />
@@ -58,7 +54,7 @@ const displayItem = (items) => {
   <button class="deleteItem">  </button>  
   </div>   `;
   }
-  return todoos;
+  return todos;
 };
 
 const monitor = () => {
@@ -80,7 +76,6 @@ const clearFields = () => {
 
 // showlist
 const showList = () => {
-  const listContent = document.querySelector('.list-content');
   listContent.innerHTML = `
 
  ${displayItem(taskLs)}`;
